@@ -9,55 +9,132 @@
  *
  * @import "tailwindcss/preflight";
  */
- @tailwind preflight;
+@tailwind preflight;
 
- /**
-  * This injects any component classes registered by plugins.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/components";
-  */
- @tailwind components;
- 
- /**
-  * Here you would add any of your custom component classes; stuff that you'd
-  * want loaded *before* the utilities so that the utilities could still
-  * override them.
-  *
-  * Example:
-  *
-  * .btn { ... }
-  * .form-input { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "components/buttons";
-  * @import "components/forms";
-  */
- 
- /**
-  * This injects all of Tailwind's utility classes, generated based on your
-  * config file.
-  *
-  * If using `postcss-import`, use this import instead:
-  *
-  * @import "tailwindcss/utilities";
-  */
- @tailwind utilities;
- 
- /**
-  * Here you would add any custom utilities you need that don't come out of the
-  * box with Tailwind.
-  *
-  * Example :
-  *
-  * .bg-pattern-graph-paper { ... }
-  * .skew-45 { ... }
-  *
-  * Or if using a preprocessor or `postcss-import`:
-  *
-  * @import "utilities/background-patterns";
-  * @import "utilities/skew-transforms";
-  */
- 
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
+
+.bg-bottom-stripe {
+  position: relative;
+  padding-bottom: 21vw;
+}
+
+.bg-bottom-stripe::after {
+  content: "";
+  height: 21vw;
+  width: 100vw;
+  position: absolute;
+  background-image: url(../resources/images/bottom-stripe.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+  left: 0;
+  bottom: -3px;
+}
+
+@media screen and (min-width: 575px) {
+  .bg-bottom-stripe::after {
+    height: 21vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .bg-bottom-stripe {
+    padding-bottom: 1rem;
+  }
+
+  .bg-bottom-stripe::after {
+    bottom: -5px;
+    background-image: none;
+  }
+
+  .content {
+    margin-top: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.7rem;
+}
+
+.weather {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: -3rem;
+}
+
+.weather-icon {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+.programm-box {
+  position: relative;
+  overflow: hidden;
+  min-height: 8rem;
+  display: flex;
+  min-height: 7rem;
+}
+
+.programm-stripe {
+  position: absolute;
+  width: 4px;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.font-nunito {
+  font-size: 0.8rem;
+  font-weight: 300;
+}

@@ -2,7 +2,7 @@ Arguments:
   /usr/local/Cellar/node/8.4.0/bin/node /Users/cedricbals/.yarn/bin/yarn.js dev
 
 PATH: 
-  /Users/cedricbals/.yarn/bin:/Users/cedricbals/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/cedricbals/.rvm/bin:/Users/cedricbals/.npm/.bin
+  /Users/cedricbals/.yarn/bin:/Users/cedricbals/.config/yarn/global/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/cedricbals/.yarn/bin:/Users/cedricbals/.config/yarn/global/node_modules/.bin:/Users/cedricbals/.rvm/bin:/Users/cedricbals/.npm/.bin:/Users/cedricbals/.rvm/bin:/Users/cedricbals/.npm/.bin
 
 Yarn version: 
   1.5.1
