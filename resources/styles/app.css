@@ -71,7 +71,7 @@
   height: 21vw;
   width: 100vw;
   position: absolute;
-  background-image: url(../resources/images/bottom-stripe.svg);
+  background-image: url(../images/bottom-stripe.svg);
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 100;

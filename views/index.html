@@ -1,0 +1,43 @@
+{{range .Data}}
+<div class="block xl:block w-full xl:w-1/5 mb-4 py-6 px-3">
+    <div class="w-full flex flex-row items-center mb-8 relative">
+        <div class="block xl:hidden w-8">
+            <button>
+                <img class="w-full" src="../assets/images/arrow-left.svg" />
+            </button>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-2xl text-center">{{ .Name}}</h2>
+            <h3 class="text-xl text-center">{{ .Date}}</h3>
+        </div>
+        <div class="block xl:hidden w-8">
+            <button>
+                <img class="w-full" src="../assets/images/arrow-right.svg" />
+            </button>
+        </div>
+    </div>
+    {{ range $group, $entries := .Entries }}
+        <div class="mt-6 block relative">
+            <div class="text-lg mb-2 text-left">{{ $group }}</div>
+        </div>
+        {{ range $entries }}
+            <div class="mt-6 block relative">
+
+                <div class="w-full p-3 rounded shadow-md bg-white programm-box">
+                        <div class="programm-stripe bg-{{ .Color }}"></div>
+                        <div class="flex flex-row w-full">
+                            <div class="flex-1 flex flex-col justify-around">
+                                <div class="text-xl mb-auto break-words">{{ .Name }}</div>
+                                <p class="mt-2 font-nunito">{{ .Description }}</p>
+                                <div class="mt-2">{{ .ResponsiblePersons }}</div>
+                            </div>
+                            <div class="w-12">
+                                <img class="w-full" src="../assets/images/donut.svg" />
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        {{ end }}
+    {{ end }}
+</div>
+{{end}}

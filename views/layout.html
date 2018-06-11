@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet">
+    <title>Zeltlager 2018 Planung</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="font-sans font-bold">
+
+<div class="bg-yellow bg-bottom-stripe">
+    <div class="container py-6 pb-0 xl:pb-6">
+        <div class="flex flex-wrap flex-col items-center">
+            <div class="w-16 sm:w-32 relative">
+                <img class="w-full mt-6" src="../assets/images/tent.svg">
+                <div class="weather">
+                    <div class="weather-icon">
+                        <img class="w-full mr-6" src="../assets/images/weather/rain.svg">
+                    </div>
+                    <span>
+                            {{ .Weather }}°
+                        </span>
+                </div>
+            </div>
+            <h1 class="text-xl sm:text-2xl mt-6">Tagesprogramm</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="xl:flex flex-wrap mb-4 content">
+        {{ yield }}
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,5 +1,9 @@
-/node_modules
-/dist
+node_modules
+/assets
+/.idea
 
 .vscode
 .yarn-error
+client_secret.json
+token.json
+.env
