@@ -22,8 +22,9 @@ func main() {
 	app := iris.New()
 	
 	app.StaticEmbeddedGzip("/assets", "./assets", GzipAsset, GzipAssetNames)
-	tmpl := iris.HTML("./views", ".html").Reload(true)
+	tmpl := iris.HTML("./templates", ".html").Reload(true)
 	tmpl.Layout("layout.html")
+	tmpl.Binary(Asset, AssetNames)
 	app.RegisterView(tmpl)
 	
 	viewData := getViewData()
