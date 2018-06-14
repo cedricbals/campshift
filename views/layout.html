@@ -17,10 +17,10 @@
                 <img class="w-full mt-6" src="../assets/images/tent.svg">
                 <div class="weather">
                     <div class="weather-icon">
-                        <img class="w-full mr-6" src="../assets/images/weather/rain.svg">
+                        <img class="w-full mr-6" src="../assets/images/weather/{{ .WeatherImage }}">
                     </div>
                     <span>
-                            {{ .Weather }}°
+                            {{ .Weather.Main.TempMax }}°
                         </span>
                 </div>
             </div>

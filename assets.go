@@ -9,7 +9,7 @@
 // assets\images\unicorn.svg
 // assets\images\watering-can.svg
 // assets\images\weather\cloudy.svg
-// assets\images\weather\parly-cloudy.svg
+// assets\images\weather\partly-cloudy.svg
 // assets\images\weather\rain.svg
 // assets\images\weather\sun.svg
 // assets\images\weather\thunder.svg
@@ -1563,7 +1563,7 @@ var _gzipBindataAssetsimagesweatherparlycloudysvg = []byte(
 func gzipBindataAssetsimagesweatherparlycloudysvg() (*gzipAsset, error) {
 	bytes := _gzipBindataAssetsimagesweatherparlycloudysvg
 	info := gzipBindataFileInfo{
-		name: "assets/images/weather/parly-cloudy.svg",
+		name: "assets/images/weather/partly-cloudy.svg",
 		size: 6320,
 		md5checksum: "",
 		mode: os.FileMode(438),
@@ -3479,7 +3479,7 @@ var _gzipbindata = map[string]func() (*gzipAsset, error){
 	"assets/images/unicorn.svg":              gzipBindataAssetsimagesunicornsvg,
 	"assets/images/watering-can.svg":         gzipBindataAssetsimageswateringcansvg,
 	"assets/images/weather/cloudy.svg":       gzipBindataAssetsimagesweathercloudysvg,
-	"assets/images/weather/parly-cloudy.svg": gzipBindataAssetsimagesweatherparlycloudysvg,
+	"assets/images/weather/partly-cloudy.svg": gzipBindataAssetsimagesweatherparlycloudysvg,
 	"assets/images/weather/rain.svg":         gzipBindataAssetsimagesweatherrainsvg,
 	"assets/images/weather/sun.svg":          gzipBindataAssetsimagesweathersunsvg,
 	"assets/images/weather/thunder.svg":      gzipBindataAssetsimagesweatherthundersvg,
@@ -3549,7 +3549,7 @@ var _gzipbintree = &gzipBintree{Func: nil, Children: map[string]*gzipBintree{
 			"watering-can.svg": {Func: gzipBindataAssetsimageswateringcansvg, Children: map[string]*gzipBintree{}},
 			"weather": {Func: nil, Children: map[string]*gzipBintree{
 				"cloudy.svg": {Func: gzipBindataAssetsimagesweathercloudysvg, Children: map[string]*gzipBintree{}},
-				"parly-cloudy.svg": {Func: gzipBindataAssetsimagesweatherparlycloudysvg, Children: map[string]*gzipBintree{}},
+				"partly-cloudy.svg": {Func: gzipBindataAssetsimagesweatherparlycloudysvg, Children: map[string]*gzipBintree{}},
 				"rain.svg": {Func: gzipBindataAssetsimagesweatherrainsvg, Children: map[string]*gzipBintree{}},
 				"sun.svg": {Func: gzipBindataAssetsimagesweathersunsvg, Children: map[string]*gzipBintree{}},
 				"thunder.svg": {Func: gzipBindataAssetsimagesweatherthundersvg, Children: map[string]*gzipBintree{}},

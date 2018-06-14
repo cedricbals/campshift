@@ -1,9 +1,11 @@
 node_modules
 /assets
 /.idea
+/vendor
 
 .vscode
 .yarn-error
 client_secret.json
 token.json
 .env
+.directory

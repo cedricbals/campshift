@@ -1,0 +1,23 @@
+[[constraint]]
+  name = "github.com/briandowns/openweathermap"
+  version = "0.12"
+
+[[constraint]]
+  name = "github.com/joho/godotenv"
+  version = "1.2.0"
+
+[[constraint]]
+  name = "github.com/kataras/iris"
+  version = "10.6.6"
+
+[[constraint]]
+  branch = "master"
+  name = "golang.org/x/oauth2"
+
+[[constraint]]
+  branch = "master"
+  name = "google.golang.org/api"
+
+[prune]
+  go-tests = true
+  unused-packages = true
