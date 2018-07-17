@@ -4,16 +4,21 @@ import (
 	"log"
 	"strings"
 	"os"
+	"time"
 )
 
 type groupedEntryMap map[string][]Entry
 
 type Day struct {
+	PreviousDate string
+	NextDate string
+	
 	Name string
 	Date string
 	
 	Entries       *groupedEntryMap
 	GroupingOrder *[]string
+	IsToday bool
 }
 
 type Entry struct {
@@ -32,6 +37,10 @@ func fetchSheetsData() (data []Day) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	
+	todayInSheetFormat := time.Now().Format("02.01.2006")
+	foundToday := false
+	
 	days := resp.Sheets
 	for _, day := range days {
 		dayResp, err := sheetsClient.Spreadsheets.Values.Get(sheetId, "'"+day.Properties.Title+"'!A2:F").Do()
@@ -47,7 +56,12 @@ func fetchSheetsData() (data []Day) {
 			Name:          dayNameAndDate[0],
 			Entries:       &entries,
 			GroupingOrder: &groupingOrder,
+			IsToday: todayInSheetFormat == dayNameAndDate[1],
 		})
+		
+		if !foundToday {
+			foundToday = todayInSheetFormat == dayNameAndDate[1]
+		}
 		
 		for rowIdx, row := range dayResp.Values {
 			grouping := row[0].(string)
@@ -66,6 +80,20 @@ func fetchSheetsData() (data []Day) {
 				Row:                rowIdx,
 			})
 		}
+	}
+	
+	if !foundToday {
+		data[0].IsToday = true
+	}
+	
+	// build "linked list"
+	var lastDate string
+	for dayIdx, day := range data {
+		if len(lastDate) > 0 {
+			data[dayIdx].PreviousDate = lastDate
+			data[dayIdx - 1].NextDate = day.Date
+		}
+		lastDate = day.Date
 	}
 	
 	return

@@ -1,8 +1,13 @@
 {{range $day := .Data}}
-<div class="block xl:block w-full xl:w-1/5 mb-4 py-6 px-3">
+<div
+        class="block xl:block w-full xl:w-1/5 mb-4 py-6 px-3 day{{if $day.IsToday}} sm:visible{{else}} hidden{{end}}"
+        data-day="{{ $day.Date }}"
+        data-next-day="{{ $day.NextDate }}"
+        data-previous-day="{{ $day.PreviousDate }}"
+>
     <div class="w-full flex flex-row items-center mb-8 relative">
-        <div class="block xl:hidden w-8">
-            <button>
+        <div class="block xl:hidden w-8{{$prevDateLength := len $day.PreviousDate}}{{if lt $prevDateLength 1}} hidden{{end}}">
+            <button class="day-switcher" data-switch-direction="back">
                 <img class="w-full" src="../assets/images/arrow-left.svg" />
             </button>
         </div>
@@ -10,8 +15,8 @@
             <h2 class="text-2xl text-center">{{ .Name}}</h2>
             <h3 class="text-xl text-center">{{ .Date}}</h3>
         </div>
-        <div class="block xl:hidden w-8">
-            <button>
+        <div class="block xl:hidden w-8{{$nextDateLength := len $day.NextDate}}{{if lt $nextDateLength 1}} hidden{{end}}" data-switch-direction="back">
+            <button class="day-switcher" data-switch-direction="forward">
                 <img class="w-full" src="../assets/images/arrow-right.svg" />
             </button>
         </div>
@@ -30,7 +35,7 @@
                                 <p class="mt-2 font-nunito">{{ .Description }}</p>
                                 <div class="mt-2">{{ .ResponsiblePersons }}</div>
                             </div>
-                            <div class="w-12">
+                            <div class="w-9">
                                 <img class="w-full" src="../assets/images/{{ .Icon }}.svg" />
                             </div>
                         </div>

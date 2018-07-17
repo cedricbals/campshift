@@ -5,13 +5,16 @@ import (
 	"github.com/joho/godotenv"
 	"log"
 	"github.com/briandowns/openweathermap"
+	"time"
 )
 
-type viewData struct {
+type viewDataHolder struct {
 	Data         []Day
 	Weather      *openweathermap.CurrentWeatherData
 	WeatherImage string
 }
+
+var viewData viewDataHolder
 
 func main() {
 	err := godotenv.Load()
@@ -27,10 +30,11 @@ func main() {
 	tmpl.Binary(Asset, AssetNames)
 	app.RegisterView(tmpl)
 	
-	viewData := getViewData()
+	getViewData()
+	
+	go refreshViewData()
 	
 	app.Get("/", func(ctx iris.Context) {
-		
 		ctx.ViewData("", viewData)
 		ctx.View("index.html")
 	})
@@ -38,13 +42,18 @@ func main() {
 	app.Run(iris.Addr(":8080"))
 }
 
-func getViewData() viewData {
-	weatherMaxTemp, weatherImage := getWeather()
+func getViewData() {
+	println("fetched view data")
+	
 	data := fetchSheetsData()
 	
-	return viewData{
+	viewData = viewDataHolder{
 		Data:         data,
-		Weather:      weatherMaxTemp,
-		WeatherImage: weatherImage,
+	}
+}
+
+func refreshViewData() {
+	for range time.Tick(5 * time.Minute) {
+		getViewData()
 	}
 }

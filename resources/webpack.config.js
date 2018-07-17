@@ -3,10 +3,10 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './index.js',
+    entry: './app.js',
     output: {
         path: path.resolve(__dirname, '../assets'),
-        filename: 'styles.css',
+        filename: 'app.js',
     },
     module: {
         rules: [
